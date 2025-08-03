@@ -1,0 +1,35 @@
+<resources>
+    <string name="ting_tong">TingTong</string>
+
+    <string name="input_user">Input User</string>
+    <string name="user_records">User Records</string>
+
+    <string name="id">ID</string>
+    <string name="id_colon">ID:</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="successful">Successful</string>
+    <string name="the_record_has_been_updated_successfully">The record has been updated Successfully.</string>
+
+    <string name="click_to_see_all_the_saved_records">Click to see all the saved records.</string>
+    <string name="click_to_update_the_record">Click to update the record.</string>
+    <string name="long_press_to_delete_the_record">Long press to delete the record.</string>
+    <string name="next">Next</string>
+    <string name="click_to_clear_all_records">Click to clear all records.</string>
+    <string name="ok">OK</string>
+    <string name="finish">Finish</string>
+
+    <string name="no_records">No Records</string>
+
+    <string name="important">Important</string>
+    <string name="do_you_want_to_delete_all_records">Do you want to delete all records?</string>
+    <string name="do_you_want_to_delete_the_record">Do you want to delete the record?</string>
+    <string name="do_you_want_to_update_the_records">Do you want to update the records?</string>
+</resources>
