@@ -14,6 +14,7 @@ fun SystemUiController(
     navigationBarColor: Color = Color.Transparent,
     useDarkIcons: Boolean = true
 ) {
+    //Hi
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
