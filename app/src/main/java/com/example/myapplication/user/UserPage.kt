@@ -31,6 +31,7 @@ import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -64,6 +65,8 @@ fun UserPage(
     val originalUser = remember { mutableStateOf<User?>(null) }
 
     val showDeleteAllDialog = remember { mutableStateOf(false) }
+    val showDeletedAllDialog = remember { mutableStateOf(false) }
+    val showDeletedOnlyUserDialog = remember { mutableStateOf(false) }
     val showUpdateDialog = remember { mutableStateOf(false) }
     val showUpdateBottomSheet = remember { mutableStateOf(false) }
     val showUpdatedDialog = remember { mutableStateOf(false) }
@@ -218,6 +221,27 @@ fun UserPage(
                 onDelete = {
                     userViewModel.resetDatabase()
                     showDeleteAllDialog.value = false
+                    showDeletedAllDialog.value = true
+                }
+            )
+        }
+
+        /**
+         * DeletedAll Users Dialog
+         */
+        if (showDeletedAllDialog.value) {
+            LaunchedEffect(Unit) {
+                delay(5000)
+                showDeletedAllDialog.value = false
+            }
+
+            DialogComponent(
+                modifier = Modifier,
+                titlePrefix = stringResource(R.string.all_deleted),
+                titleSuffix = stringResource(R.string.successful),
+                subTitle = stringResource(R.string.all_records_has_been_deleted_successfully),
+                onDismiss = {
+                    showDeletedAllDialog.value = false
                 }
             )
         }
@@ -230,7 +254,6 @@ fun UserPage(
                 modifier = Modifier,
                 title = stringResource(R.string.update),
                 subTitle = stringResource(R.string.do_you_want_to_update_the_records),
-                body = "${stringResource(R.string.id_colon)} ${userToUpdate.value?.id}",
                 onDismiss = {
                     showUpdateDialog.value = false
                 },
@@ -278,9 +301,11 @@ fun UserPage(
 
             DialogComponent(
                 modifier = Modifier,
-                title = stringResource(R.string.successful),
+                icon = painterResource(R.drawable.icon_check),
+                titlePrefix = stringResource(R.string.updated),
+                titlePrefixColor = colorResource(R.color.orange),
+                titleSuffix = stringResource(R.string.successful),
                 subTitle = stringResource(R.string.the_record_has_been_updated_successfully),
-                body = "${stringResource(R.string.id_colon)} ${userToUpdate.value?.id}",
                 onDismiss = {
                     showUpdatedDialog.value = false
                 }
@@ -295,13 +320,33 @@ fun UserPage(
                 modifier = Modifier,
                 title = stringResource(R.string.important),
                 subTitle = stringResource(R.string.do_you_want_to_delete_the_record),
-                body = "${stringResource(R.string.id_colon)} ${userToDelete.value?.id}",
                 onDismiss = {
                     userToDelete.value = null
                 },
                 onDelete = {
                     userViewModel.deleteUser(user)
                     userToDelete.value = null
+                    showDeletedOnlyUserDialog.value = true
+                }
+            )
+        }
+
+        /**
+         * DeletedOnly User Dialog
+         */
+        if (showDeletedOnlyUserDialog.value) {
+            LaunchedEffect(Unit) {
+                delay(5000)
+                showDeletedOnlyUserDialog.value = false
+            }
+
+            DialogComponent(
+                modifier = Modifier,
+                titlePrefix = stringResource(R.string.deleted),
+                titleSuffix = stringResource(R.string.successful),
+                subTitle = stringResource(R.string.the_record_has_been_deleted_successfully),
+                onDismiss = {
+                    showDeletedOnlyUserDialog.value = false
                 }
             )
         }

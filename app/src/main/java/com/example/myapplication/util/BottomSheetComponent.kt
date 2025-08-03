@@ -117,7 +117,9 @@ fun BottomSheetComponent(
                 .clickable(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = null,
-                    onClick = {}
+                    onClick = {
+                        focusManager.clearFocus()
+                    }
                 )
                 .padding(horizontal = 15.dp),
             verticalArrangement = Arrangement.Center,

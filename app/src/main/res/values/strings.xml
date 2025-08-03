@@ -16,7 +16,12 @@
     <string name="cancel">Cancel</string>
 
     <string name="successful">Successful</string>
-    <string name="the_record_has_been_updated_successfully">The record has been updated Successfully.</string>
+    <string name="updated">Updated</string>
+    <string name="the_record_has_been_updated_successfully">The record has been updated successfully.</string>
+    <string name="deleted">Deleted</string>
+    <string name="the_record_has_been_deleted_successfully">The record has been deleted successfully.</string>
+    <string name="all_deleted">All Deleted</string>
+    <string name="all_records_has_been_deleted_successfully">All records has been deleted successfully.</string>
 
     <string name="click_to_see_all_the_saved_records">Click to see all the saved records.</string>
     <string name="click_to_update_the_record">Click to update the record.</string>
